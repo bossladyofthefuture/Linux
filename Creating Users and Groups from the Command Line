@@ -1,0 +1,45 @@
+Creating Users and Groups from the Command Line
+Create the Required Users
+List the current working directory.
+pwd
+Copy your cloud_user password to your clipboard.
+Run the following command to create the required users:
+for i in jen william matt sam anne danny kate bruce; do sudo useradd -m $i; done
+Enter your cloud_user password at the prompt.
+View the recent additions to the /etc/passwd file.
+tail /etc/passwd
+Note the newly created users in the output.
+Create the Required Groups
+Run the following commands:
+sudo groupadd management
+sudo groupadd sales
+sudo groupadd operations
+View the recent additions to the /etc/group file.
+tail /etc/group
+Note the newly created groups in the output.
+Add Members to the Appropriate Groups
+Add jen to all groups.
+sudo usermod -a -G management jen
+sudo usermod -a -G sales jen
+sudo usermod -a -G operations jen
+Verify that the user jen has been added to all three groups.
+groups jen
+Add william to all groups.
+for i in management sales operations; do sudo usermod -a -G $i william; done
+Verify that the user william has been added to all three groups.
+groups william
+Add the users matt, sam, anne, and danny to the sales group.
+for i in matt sam anne danny; do sudo usermod -a -G sales $i; done
+Verify that this was successful.
+groups matt
+groups sam
+Add the users kate and bruce to the operations group.
+sudo usermod -a -G operations kate
+sudo usermod -a -G operations bruce
+Verify that group membership for both managers has been configured correctly.
+id jen
+id william
+Verify that group membership has been configured correctly for all users.
+tail -n3 /etc/group
+Conclusion
+
