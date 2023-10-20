@@ -1,0 +1,46 @@
+View Running Processes from the Command Line
+
+Determine How Many Processes Are Currently Running
+Run the following command:
+ps aux | grep -v grep | wc -l
+The command should return the number of processes running on the system.
+Determine the Current System Load
+Run the following command:
+cat /proc/loadavg
+The command should return the current system load.
+Determine How Many Processes Are Running as cloud_user
+Run the following command:
+ps -U cloud_user | wc -l
+The command should return the number of processes running as cloud_user.
+Determine the PID of the xfce4-session Process
+Run the following command:
+ps aux | grep xfce4-session | grep -v grep
+The command should return a value for the PID.
+Determine How Many Threads the xfce4-session Process Is Using
+Run the following command, replacing <PID_VALUE> with the PID value from the objective above (the numerical value returned in the output, after cloud_u+):
+cat /proc/<PID_VALUE>/status | grep Threads
+You should get a return of 3 threads.
+Write a Small Shell Script that Returns the Number of Threads a Process Is Running (Optional)
+Make a new directory named bin by running the following command:
+mkdir bin
+Create the file threads.sh in the bin directory by running the following command:
+vim bin/threads.sh
+In the Vim text editor, enter the following:
+Note: When copying and pasting code into Vim from the lab guide, first enter :set paste (and then i to enter insert mode) to avoid adding unnecessary spaces and hashes. To save and quit the file, press Escape followed by :wq. To exit the file without saving, press Escape followed by :q!.
+#!/bin/bash 
+
+
+if [ -n $1 ] 
+then 
+_pid=$(ps aux | grep -E "$1\$" | grep -v grep | grep -v threads.sh | awk '{print $2}') 
+cat /proc/$_pid/status | grep Threads 
+
+
+fi
+Press Esc to exit Insert mode, and type :wq to save and exit the file.
+Make the file executable, by running the following command:
+chmod u+x bin/threads.sh
+Use the script we just created to determine the number of threads the xfce4-session process is running.
+./bin/threads.sh xfce4-session
+You should get a return of 3 threads.
+Conclusion
