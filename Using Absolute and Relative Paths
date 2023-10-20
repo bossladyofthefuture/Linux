@@ -1,0 +1,22 @@
+Using Absolute and Relative Paths
+Use Absolute Paths to Move the File
+Determine the current working directory.
+pwd
+Run the following command:
+cat /home/cloud_user/Practice/Test/free > /home/cloud_user/value.txt
+List the contents of the current working directory.
+ls
+List the contents of the value.txt file we just created.
+cat value.txt
+Use Relative Paths to Move the File
+Change to the /usr/share directory.
+cd /usr/share/
+Run the following command:
+cat ../../home/cloud_user/Practice/Test/sys/fs/xfs/stats/stats >> ../../home/cloud_user/value.txt
+List the details for the value.txt file.
+ls -l ~/value.txt
+Change to the home directory.
+cd
+List the contents of the value.txt file.
+cat value.txt
+Conclusion
