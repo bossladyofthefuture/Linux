@@ -1,0 +1,33 @@
+Querying DNS Client Configuration from the Command Line
+
+Introduction
+In this hands-on lab, we’ll verify the network DNS configuration settings and perform several DNS queries. Knowing how to locate this information, and how to perform queries using the configured DNS host (as well as other hosts), is a useful skill.
+We have been asked to troubleshoot an issue with www.acloudguru.com. One of the developers is having trouble reaching the host from this server, and has asked us to verify connectivity.
+Solution
+Connect to the lab server using the credentials provided:
+ssh cloud_user@<PUBLIC_IP_ADDRESS>
+Determine the Configured DNS Host
+Verify the DNS host of the server:
+cat /etc/resolv.conf
+Perform a DNS Lookup of www.acloudguru.com Using the Configured DNS Server
+Perform a DNS lookup using host:
+host www.acloudguru.com
+Perform a DNS lookup using dig:
+dig www.acloudguru.com
+Perform a DNS Lookup of www.acloudguru.com Using Another DNS Host
+Perform a DNS lookup using another DNS host with dig:
+dig @1.1.1.1 www.acloudguru.com
+ Note: The connection is expected to fail with the following message, "connection timed out; no servers could be reached."
+Perform a DNS lookup using another DNS host with host:
+host www.acloudguru.com 1.1.1.1
+ Note: The connection is expected to fail with the following message, "connection timed out; no servers could be reached."
+Test Connectivity to www.acloudguru.com
+Test connectivity using ping:
+ping -c1 www.acloudguru.com
+ Note: The ping statistics will show 100% packet loss.
+Test connectivity using curl:
+curl -I www.acloudguru.com
+ Note: The output will indicate 301 Moved Permanently.
+Conclusion
+
+
