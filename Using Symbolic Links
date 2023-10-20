@@ -1,0 +1,32 @@
+Using Symbolic Links
+
+Create the ~/ bin Directory and Add it to the PATH
+List the current working directory.
+pwd
+Make the ~/bin directory.
+mkdir bin
+View the current $PATH environment variable.
+echo $PATH
+Add ~/bin to the $PATH environment variable.
+echo 'PATH=$HOME/bin:$PATH' >> .bashrc
+Reload .bashrc.
+source .bashrc
+Verify that ~/bin was successfully added to $PATH.
+echo $PATH
+Create the Symbolic Links
+Create a symbolic link ("symlink") for rpm_verify.
+ln -s /usr/lib/rpm/rpmdb_verify bin/rpm_verify
+Verify that this was successful.
+ll bin/
+Create a symlink for rpm_dump.
+ln -s /usr/lib/rpm/rpmdb_dump bin/rpm_dump
+Create a symlink for rpm_load.
+ln -s /usr/lib/rpm/rpmdb_load bin/rpm_load
+Verify that all three symbolic links have been created.
+ll bin/
+Test the Symbolic Links
+View the symbolic links.
+rpm
+Verify that the rpm_verify symlink works.
+rpm_verify /var/lib/rpm/Packages
+Conclusion
