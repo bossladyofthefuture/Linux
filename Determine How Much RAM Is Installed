@@ -1,0 +1,56 @@
+Getting Hardware Information from the Command Line
+Determine How Much Storage Is Available
+List the current working directory.
+pwd
+List the contents of the file hw_questions.txt.
+cat hw_questions.txt
+Determine the amount of available storage space.
+df -h
+Copy the amount of available space to your clipboard.
+Open the file hw_questions.txt with the vim text editor.
+vim hw_questions.txt
+Paste the answer we copied into the line beneath the first question.
+Press Esc to exit Insert mode, and type :wq to save and exit the file.
+Determine the Number of CPUs/Cores
+List the contents of /proc/cpuinfo.
+cat /proc/cpuinfo
+Copy the amount of cores present. If it shows 0 processors, it means there is only one core.
+Open the file hw_questions.txt.
+vim hw_questions.txt
+Paste the answer that we just copied on the line beneath the second question.
+Press Esc to exit Insert mode, and type :wq to save and exit the file.
+Determine the CPU Speed
+In the output of the cat /proc/cpuinfo command, locate the line that begins with model name.
+Copy the CPU speed (the value that ends in GHz) to your clipboard.
+Open the file hw_questions.txt.
+vim hw_questions.txt
+Paste the GHz answer that we copied into the line beneath the third question.
+Press Esc to exit Insert mode, and type :wq to save and exit the file.
+Determine How Much RAM Is Installed
+Run the following command:
+sudo cat /proc/meminfo
+Enter your cloud_user password at the prompt.
+Scroll down to the MemTotal section, and copy the value to your clipboard.
+Open the file hw_questions.txt.
+vim hw_questions.txt
+Paste the MemTotal answer that we just copied into the line beneath the fourth question.
+Press Esc to exit Insert mode, and type :wq to save and exit the file.
+Determine How Much Swap Is Being Used
+Run the following command:
+free -m
+Copy down the amount of swap currently being used.
+Open the file hw_questions.txt.
+vim hw_questions.txt
+Paste the swap answer that we just copied into the line beneath the fifth question.
+Press Esc to exit Insert mode, and type :wq to save and exit the file.
+Determine the BIOS Version
+Run the following command:
+sudo lshw
+Locate the firmware section, and copy the value for version.
+Open the file hw_questions.txt.
+vim hw_questions.txt
+Paste the version answer we just copied on the line beneath the fifth question.
+Press Esc to exit Insert mode, and type :wq to save and exit the file.
+List the contents of the file hw_questions.txt.
+cat hw_questions.txt
+Conclusion
