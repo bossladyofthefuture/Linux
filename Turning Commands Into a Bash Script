@@ -1,0 +1,40 @@
+Turning Commands Into a Bash Script
+
+Determine What Options Should Be Used with the ssh Command
+List the current working directory:
+pwd
+Your current working directory should be /home/cloud_user.
+Open the man page for ssh:
+man ssh
+Type /checking to search for the term "checking".
+Locate the entry for StrictHostKeyChecking.
+Type /StrictHostKeyChecking to learn more about the option.
+Type q to quit and return to the CLI.
+Disable strict host key checking:
+ssh -o StrictHostKeyChecking=no localhost
+Press Ctrl + C to exit the password prompt.
+Build a Script from the Required Commands
+Create a bin folder in cloud_user's home directory:
+mkdir bin
+Use Vim or nano to create the file lab.sh in the new bin folder:
+vim bin/lab.sh
+Enter the following into the file:
+Note: When copying and pasting code into Vim from the lab guide, first enter :set paste (and then i to enter insert mode) to avoid adding unnecessary spaces and hashes. To save and quit the file, press Escape followed by :wq. To exit the file without saving, press Escape followed by :q!.
+#!/bin/bash login_user=cloud_user if [ -n $1 ] then ssh -o StrictHostKeyChecking=no $login_user@$1 fi
+Press Esc and enter :wq to save and quit.
+Execute and Verify the Script
+Make the file executable:
+chmod u+x bin/lab.sh
+Run the script, passing localhost as the first variable.
+./bin/lab.sh localhost
+It should return a password prompt.
+Press Ctrl + C to exit the password prompt.
+Add the New bin Directory to the PATH Variable
+Run the following command:
+echo 'PATH="$HOME/bin:$PATH"' >> .bashrc
+Source .bashrc:
+. .bashrc
+Verify that you can run lab.sh without specifying the path to the script:
+lab.sh 10.0.1.10
+It should return a password prompt.
+Conclusion
