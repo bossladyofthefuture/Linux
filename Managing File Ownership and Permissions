@@ -1,0 +1,60 @@
+Managing File Ownership and Permissions
+Lock Bill's, Susan's, and Juan’s Accounts
+List the current working directory.
+pwd
+List the existing home directories.
+ll /home/
+Lock Bill's, Susan's, and Juan's accounts.
+for i in bill susan juan; do sudo passwd -l $i; done
+Enter your cloud_user password at the prompt.
+Create Accounts for Nancy, Greg, and Jeremy
+Run the following command:
+for i in nancy greg jeremy; do sudo useradd -m $i; done
+Remove Bill as a User and Transfer Ownership of his Home Directory
+View Jason's permissions.
+id jason
+Remove the user bill.
+sudo userdel bill
+List the existing home directories.
+ll /home/
+Change the ownership of Bill's home directory (recursively) to the user nancy and the group jason.
+sudo chown -R nancy:jason /home/bill
+Verify that this was successful.
+ll /home/
+Change the mode of the directory to grant read and execute permissions to the group.
+sudo chmod g+rx /home/bill
+View the permissions for the files in Bill's home directory.
+sudo ls -l /home/bill
+Remove Susan as a User and Transfer Ownership of her Home Directory
+Remove the user susan.
+sudo userdel susan
+Change the ownership of Susan's home directory (recursively) to the user greg and the group jason.
+sudo chown -R greg:jason /home/susan
+Change the mode of the directory to grant read and execute permissions to the group.
+sudo chmod g+rx /home/susan
+Verify that this was successful.
+ll /home
+Remove Juan as a User and Transfer Ownership of His Home Directory
+View Sally's permissions.
+id sally
+Remove the user juan.
+sudo userdel juan
+Change the ownership of Juan's home directory (recursively) to the user jeremy and the group sally.
+sudo chown -R jeremy:sally /home/juan
+Change the mode of the directory to grant read and execute permissions to the group.
+sudo chmod g+rx /home/juan
+Verify that this was successful.
+ll /home/
+Become the user nancy.
+sudo su - nancy
+List the current working directory.
+pwd
+Change to the /home/bill directory.
+cd /home/bill
+List the contents of the directory to verify that nancy has read permissions for the directory.
+ll
+Add a new line to bill_files_1 to verify that the user nancy has write permissions for the directory.
+echo "a new line" >> bill_files_1
+Verify that this was successful.
+tail -n1 bill_files_1
+Conclusion
