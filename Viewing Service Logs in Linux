@@ -1,0 +1,27 @@
+Viewing Service Logs in Linux
+Attempt to curl the Address on the Local Host
+List the current working directory:
+pwd
+Run curl on the local host:
+curl -I localhost
+Determine How Many Times 10.0.1.10 Has Accessed the Website
+View the access_log file:
+sudo cat /var/log/httpd/access_log
+Enter your cloud_user password at the prompt.
+Determine how many lines start with the IP address 10.0.1.10:
+sudo cat /var/log/httpd/access_log | grep -E "^10.0.1.10" | wc -l
+Attempt to Reach the Web Server via http://PUBLIC_IP/index.html
+In a new terminal session, attempt to connect to the web server from your local machine using the public IP address of the server:
+curl http://<PUBLIC_IP>/index.html
+ We should see a Success message.
+Find the New Entry in the Log
+Back in the cloud_user terminal window, locate the new entry that was appended to the end of the log:
+sudo tail -f /var/log/httpd/access_log
+Back in your local machine terminal window, run the curl http://<PUBLIC_IP>/index.html command again.
+Back in the cloud_user terminal window, we should see a second new log entry.
+Attempt to Reach the Web Server via http://PUBLIC_IP/server.html
+In your local machine terminal window, attempt to reach a different page on the web server:
+curl http://<PUBLIC_IP>/server.html
+ We'll see an error message.
+In the cloud_user terminal window, locate the 404 status code in the logs, indicating the path did not resolve to a valid page.
+Conclusion
