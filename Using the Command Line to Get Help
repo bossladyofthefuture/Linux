@@ -1,0 +1,42 @@
+Using the Command Line to Get Help
+
+Using the Command Line to Get Help
+Determine How Many Lines the File Contains
+Determine the current working directory:
+pwd
+List the contents of the current working directory:
+ls
+Open the man pages for the wc command:
+man wc
+Type /line, which will search the page for the word line.
+Locate the line that contains the -l option, and read the description.
+Press q to exit the man pages.
+Determine the total number of lines in the file longfile.txt:
+wc -l longfile.txt
+Output the result to a new file named value.txt:
+wc -l longfile.txt > value.txt
+Verify that this was successful:
+cat value.txt
+We should see, in that file, what we saw when we ran wc -l longfile.txt.
+Determine the Number of Characters on the Longest Line
+Open the man pages for the wc command.
+man wc
+Locate the line that contains the -L option, and read the description.
+Press q to exit the man pages.
+Determine the number of characters on the longest line in the file longfile.txt:
+wc -L longfile.txt
+Append the result to the value.txt file:
+wc -L longfile.txt >> value.txt
+Determine the Total Number of Characters in the File
+Open the man pages for the wc command:
+man wc
+Locate the line that contains the -m option, and read the description.
+Press q to exit the man pages.
+Determine the total number of characters in the file longfile.txt:
+wc -m longfile.txt
+Append the result to the value.txt file:
+wc -m longfile.txt >> value.txt
+List the contents of the value.txt file:
+cat value.txt
+
+Conclusion
