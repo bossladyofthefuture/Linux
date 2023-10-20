@@ -1,0 +1,19 @@
+Finding User Account Information from the Command Line
+
+Determine What Groups sysuser Belongs To
+List the current working directory.
+pwd
+Run the following command:
+id sysuser
+Note the groups values returned in the output.
+
+Determine sysusr’s Home Directory
+Run the following command:
+getent passwd sysuser
+Note the user's home directory returned in the output.
+
+Determine sysusr’s Login Shell
+Run the following command:
+cat /etc/passwd | grep sysuser
+Note the login shell returned in the output.
+Conclusion
