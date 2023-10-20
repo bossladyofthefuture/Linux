@@ -1,0 +1,34 @@
+Command Piping and Redirection
+
+Determine the Number of Files and Folders in /usr/share
+List the current working directory.
+pwd
+List the contents of the home directory.
+ls
+List the contents of the /usr/share directory.
+ls /usr/share/
+Determine the number of files and folders in the /usr/share/ directory.
+ls /usr/share/ | wc -l
+Rerun the previous command, and send the output to the value.txt file.
+ls /usr/share/ | wc -l > ~/value.txt
+List the contents of the current working directory.
+ls
+List the contents of the value.txt file.
+cat value.txt
+Determine the Number of Unpacked Entries in /var/log/dpkg.log
+List all of the unpacked entries in the directory.
+cat /var/log/dpkg.log | grep unpacked
+Determine the number of unpacked entries in the directory.
+cat /var/log/dpkg.log | grep unpacked | wc -l
+Rerun the previous command, and send the output to the value.txt file.
+cat /var/log/dpkg.log | grep unpacked | wc -l >> value.txt
+Verify that this was successful.
+cat value.txt
+Determine the Total Number of Entries in /var/log/dpkg.log
+Run the following command:
+cat /var/log/dpkg.log | wc -l
+Rerun the previous command, and send the output to the value.txt file.
+cat /var/log/dpkg.log | wc -l >> value.txt
+Verify that this was successful.
+cat value.txt
+Conclusion
