@@ -1,0 +1,40 @@
+Archiving Files on the Command Line
+
+Create a Normal Archive
+Determine the current working directory.
+pwd
+List the contents of the current working directory.
+ls
+Create an uncompressed archive of the ~/Practice folder.
+tar cf archive.tar Practice/
+Add a File to the Archive
+Add the file ~/extra.txt to archive.tar.
+tar rf archive.tar extra.txt
+Verify that this was successful.
+tar tvf archive.tar | grep extra.txt
+Create a Compressed Archive
+Run the following command:
+tar czf archive.tgz Practice/
+Do a long listing, and compare the sizes of the compressed and uncompressed archive files.
+ll
+Compress the Normal Archive
+Use the gzip utility to compress the first tarball with maximum compression.
+gzip -9 archive.tar
+Do a long listing, and compare the sizes of the two compressed archive files.
+ll
+Extract a Single File from an Archive
+Run the following command to extract the file Practice/Test/version.txt from the compressed archive archive.tar.gz:
+tar xzf archive.tar.gz Practice/Test/version.txt
+Do a long listing on the current directory.
+ll
+Do a long listing on Practice/Test/.
+ll Practice/Test/
+Remove version.txt from Practice/Test.
+rm Practice/Test/version.txt
+Verify that this was successful.
+ll Practice/Test/
+Run the extraction command again.
+tar xzf archive.tar.gz Practice/Test/version.txt
+Verify that this was successful.
+ll Practice/Test/
+Conclusion
