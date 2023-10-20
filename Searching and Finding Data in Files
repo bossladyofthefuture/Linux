@@ -1,0 +1,37 @@
+Searching and Finding Data in Files
+
+Determine How Many Words Start with the Letter "X"
+List the current working directory.
+pwd
+List the contents of the current working directory.
+ls
+List the number of lines in /usr/share/dict/words.
+cat /usr/share/dict/words | wc -l
+Determine how many words in the file start with the letter "x".
+cat /usr/share/dict/words | grep -E "^x" | wc -l
+Rerun the previous command, and send the output to the value.txt file.
+cat /usr/share/dict/words | grep -E "^x" | wc -l >> value.txt
+Verify that this was successful.
+cat value.txt
+Determine How Many Words End with the Letter "X"
+Run the following command:
+cat /usr/share/dict/words | grep -E "x$" | wc -l
+Rerun the previous command, and send the output to the value.txt file.
+cat /usr/share/dict/words | grep -E "x$" | wc -l >> value.txt
+Verify that this was successful.
+cat value.txt
+Determine Which Word Starts with "L", Ends in "X", and Contains 5 Characters Total
+Run the following command:
+cat /usr/share/dict/words | grep -E "^l...x$"
+Rerun the previous command, and send the output to the value.txt file.
+cat /usr/share/dict/words | grep -E "^l...x$" >> value.txt
+Verify that this was successful.
+cat value.txt
+Determine How Many 3-Letter Words Start with the Letters "Y" or "Z"
+Run the following command:
+cat /usr/share/dict/words | grep -E "^y..$|^z..$" | wc -l
+Rerun the previous command, and send the output to the value.txt file.
+cat /usr/share/dict/words | grep -E "^y..$|^z..$" | wc -l >> value.txt
+Verify that this was successful.
+cat value.txt
+Conclusion
