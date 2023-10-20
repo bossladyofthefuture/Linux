@@ -1,0 +1,35 @@
+Using Temporary Files and Directories in Linux
+Retrieve and Unpack the Archive
+List the current working directory:
+pwd
+Change to the /tmp directory:
+cd /tmp
+Use wget to retrieve the file:
+wget https://github.com/mscjr/LA/raw/master/RH342/sosreport-ip-10-0-1-11-2019-03-22-wxoxhnk.tar.xz
+List the contents of the /tmp directory:
+ls
+Unpack the archive, and disregard any error messages that appear:
+tar xf sosreport-ip-10-0-1-11-2019-03-22-wxoxhnk.tar.xz
+Verify that this was successful:
+ll
+Create a Temporary File from the Directory Listing
+Create a temporary file:
+tmp_file=$(mktemp)
+Verify that this was successful:
+echo $tmp_file
+Create a temporary file from a recursive directory listing of the archive folder:
+ls -R sosreport-ip-10-0-1-11-2019-03-22-wxoxhnk/ >> $tmp_file
+Verify that this was successful:
+cat $tmp_file
+Move the version.txt File to a More Persistent Temporary Directory
+Change to the sosreport-ip-10-0-1-11-2019-03-22-wxoxhnk folder:
+cd sosreport-ip-10-0-1-11-2019-03-22-wxoxhnk
+List the contents of the folder:
+ls
+Change back to the /tmp directory:
+cd ..
+Move the version.txt file to /var/tmp:
+mv sosreport-ip-10-0-1-11-2019-03-22-wxoxhnk/version.txt /var/tmp
+Verify that this was successful:
+ll /var/tmp/version.txt
+Conclusion
